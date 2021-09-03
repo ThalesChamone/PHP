@@ -242,11 +242,33 @@
     }
     ?>
 
+    <h3>10. Leia a hora inicial e a hora final de um jogo. A seguir calcule a
+        duração do jogo, sabendo que o mesmo pode começar em um dia e terminar em
+        outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.</h3>
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #10" id="10" method="POST">
+        <input type="number" name="horaInicial" id="">
+        <input type="number" name="HoraFinal" id="">
+        <br>
+        <br>
+        <button type="submit">Calcular</button>
+    </form>
 
+    <?php
+    if (isset($_POST['horaInicial'], $_POST['HoraFinal'])) {
+        $horaInicial = $_POST['horaInicial'];
+        $horaFinal = $_POST['HoraFinal'];
+        $duracaoHora;
 
+        if ($horaFinal > $horaInicial || $horaFinal >= $horaInicial) {
+            $duracaoHora = $horaFinal - $horaInicial;
+        } elseif ($horaFinal == $horaInicial) {
+            $duracaoHora = 24;
+        } elseif ($horaFinal < $horaInicial) {
+            $duracaoHora = $horaFinal + (24 - $horaInicial);
+        }
 
-
-
+        printf("O jogo durou %u horas", $duracaoHora);
+    }
+    ?>
 </body>
-
 </html>
