@@ -113,7 +113,7 @@
         peças 1, o valor unitário de cada peça 1, o código de uma peça 2, o número de
         peças 2 e o valor unitário de cada peça 2. Calcule e mostre o valor a ser pago.</h3>
 
-    <form action="<?= $_SERVER['PHP_SELF']; ?> #4" id="4" method="POST">
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #5" id="5" method="POST">
         <input type="number" min="0" name="peca1" placeholder="Código peça" id="">
         <input type="number" min="0" name="numeroPECA1" placeholder="Quantidade de peças" id="">
         <input type="number" step=".01" min="0" name="valorPECA1" placeholder="Valor da peça 1" id="">
@@ -142,7 +142,7 @@
     }
     ?>
 
-    <h3>Fazer um programa que leia três valores com ponto flutuante de
+    <h3>6. Fazer um programa que leia três valores com ponto flutuante de
         dupla precisão: A, B e C. Em seguida, calcule e mostre:
         <p>a) a área do triângulo retângulo que tem A por base e C por altura.</p>
         <p>b) a área do círculo de raio C. (pi = 3.14159)</p>
@@ -151,7 +151,7 @@
         <p>e) a área do retângulo que tem lados A e B.</p>
     </h3>
 
-    <form action="<?= $_SERVER['PHP_SELF']; ?> #4" id="4" method="POST">
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #6" id="6" method="POST">
         <input type="number" step=".01" min="0" name="number1" placeholder="Valor de A" id="">
         <input type="number" step=".01" min="0" name="number2" placeholder="Valor de B" id="">
         <input type="number" step=".01" min="0" name="number3" placeholder="Valor de C" id="">
@@ -174,6 +174,76 @@
         printf("<br> Área triangulo = %.4f<br>Área círculo = %.4f<br>Área trapézio = %.4f<br>Área quadrado = %.4f<br>Área retângulo = %.4f", $areaTRIANGULO, $areaCIRCULO, $areaTRAPEZIO, $areaQUADRADO, $areaRETANGULO);
     }
     ?>
+
+    <h3>7. Fazer um programa para ler um número inteiro, e depois dizer se
+        este número é negativo ou não.</h3>
+
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #7" id="7" method="POST">
+        <input type="number" name="number1" id="">
+        <br>
+        <br>
+        <button type="submit">Calcular</button>
+    </form>
+
+    <?php
+    if (isset($_POST['number1'])) {
+        $numeroA = (float)$_POST['number1'];
+        if ($numeroA < 0) {
+            printf("NEGATIVO");
+        } else {
+            printf("NÃO NEGATIVO");
+        }
+    }
+    ?>
+
+    <h3>8. Fazer um programa para ler um número inteiro e dizer se este
+        número é par ou ímpar.</h3>
+
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #8" id="8" method="POST">
+        <input type="number" name="par/impar" id="">
+        <br>
+        <br>
+        <button type="submit">Calcular</button>
+    </form>
+
+    <?php
+    if (isset($_POST['par/impar'])) {
+        $numberA = (float)$_POST['par/impar'];
+        if ($numberA % 2 == 0) {
+            printf("PAR");
+        } else {
+            printf("ÍMPAR");
+        }
+    }
+    ?>
+
+    <h3>9. Leia 2 valores inteiros (A e B). Após, o programa deve mostrar uma
+        mensagem "Sao Multiplos" ou "Nao são Multiplos", indicando se os valores lidos
+        são múltiplos entre si.</h3>
+
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #9" id="9" method="POST">
+        <input type="number" name="multiplo" id="">
+        <input type="number" name="multiplo2" id="">
+        <br>
+        <br>
+        <button type="submit">Calcular</button>
+    </form>
+
+    <?php
+    if (isset($_POST['multiplo'], $_POST['multiplo2'])) {
+        $numberA = $_POST['multiplo'];
+        $numberB = $_POST['multiplo2'];
+
+        if ($numberA % $numberB == 0 || $numberB % $numberA == 0) {
+            printf("MÚLTIPLOS");
+        } else {
+            printf("NÃO MÚLTIPLOS");
+        }
+    }
+    ?>
+
+
+
 
 
 
