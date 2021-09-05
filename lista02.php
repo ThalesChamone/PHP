@@ -10,7 +10,8 @@
             text-align: center;
             background-color: gray;
         }
-        table{
+
+        table {
             margin: auto;
         }
     </style>
@@ -275,41 +276,41 @@
     ?>
 
     <h3>11. Com base na tabela abaixo, escreva um programa que leia o
-código de um item e a quantidade deste item. A seguir, calcule e mostre o valor
-da conta a pagar.</h3>
-<table border="1">
-   <tr>
-       <td>Código</td>
-       <td>Especificação</td>
-       <td>Preço</td>
-   </tr>
-   <tr>
-       <td>1</td>
-       <td>Cachorro Quente</td>
-       <td>R$ 4,00</td>
-   </tr>
-   <tr>
-       <td>2</td>
-       <td>X-Salada</td>
-       <td>R$ 4,50</td>
-   </tr>
-   <tr>
-       <td>3</td>
-       <td>X-Bacon</td>
-       <td>R$ 5,00</td>
-   </tr>
-   <tr>
-       <td>4</td>
-       <td>Torrada Simples</td>
-       <td>R$ 2,00</td>
-   </tr>
-   <tr>
-       <td>5</td>
-       <td>Refrigerante</td>
-       <td>R$ 1,50</td>
-   </tr>
-</table>
-<form action="<?= $_SERVER['PHP_SELF']; ?> #11" id="11" method="POST">
+        código de um item e a quantidade deste item. A seguir, calcule e mostre o valor
+        da conta a pagar.</h3>
+    <table border="1">
+        <tr>
+            <td>Código</td>
+            <td>Especificação</td>
+            <td>Preço</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Cachorro Quente</td>
+            <td>R$ 4,00</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>X-Salada</td>
+            <td>R$ 4,50</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>X-Bacon</td>
+            <td>R$ 5,00</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Torrada Simples</td>
+            <td>R$ 2,00</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Refrigerante</td>
+            <td>R$ 1,50</td>
+        </tr>
+    </table>
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #11" id="11" method="POST">
         <input type="number" name="codigoItem" placeholder="Código do item" id="">
         <input type="number" name="qntItem" placeholder="Quantidade do Item" id="">
         <br>
@@ -323,38 +324,38 @@ da conta a pagar.</h3>
         $qntItem = $_POST['qntItem'];
         $valorDaCompra;
 
-        switch($codigoItem){
+        switch ($codigoItem) {
             case '1':
-                $valorDaCompra = $qntItem*4;
-                printf("Você comprou %u Cachorro quente e sua conta será no valor de R$ %.2f",$qntItem,$valorDaCompra);
+                $valorDaCompra = $qntItem * 4;
+                printf("Você comprou %u Cachorro quente e sua conta será no valor de R$ %.2f", $qntItem, $valorDaCompra);
                 break;
             case '2':
-                $valorDaCompra = $qntItem*4.50;
-                printf("Você comprou %u X-Salada e sua conta será no valor de R$ %.2f",$qntItem,$valorDaCompra);
+                $valorDaCompra = $qntItem * 4.50;
+                printf("Você comprou %u X-Salada e sua conta será no valor de R$ %.2f", $qntItem, $valorDaCompra);
                 break;
             case '3':
-                $valorDaCompra = $qntItem*5;
-                printf("Você comprou %u X-Bacon e sua conta será no valor de R$ %.2f",$qntItem,$valorDaCompra);
+                $valorDaCompra = $qntItem * 5;
+                printf("Você comprou %u X-Bacon e sua conta será no valor de R$ %.2f", $qntItem, $valorDaCompra);
                 break;
             case '4':
-                $valorDaCompra = $qntItem*2;
-                printf("Você comprou %u Torrada simples e sua conta será no valor de R$ %.2f",$qntItem,$valorDaCompra);
+                $valorDaCompra = $qntItem * 2;
+                printf("Você comprou %u Torrada simples e sua conta será no valor de R$ %.2f", $qntItem, $valorDaCompra);
                 break;
             case '5':
-                $valorDaCompra = $qntItem*2;
-                printf("Você comprou %u Torrada simples e sua conta será no valor de R$ %.2f",$qntItem,$valorDaCompra);
+                $valorDaCompra = $qntItem * 2;
+                printf("Você comprou %u Torrada simples e sua conta será no valor de R$ %.2f", $qntItem, $valorDaCompra);
                 break;
         }
     }
     ?>
     <h3>12. Você deve fazer um programa que leia um valor qualquer e
-apresente uma mensagem dizendo em qual dos seguintes intervalos ([0,25],
-(25,50], (50,75], (75,100]) este valor se encontra. Obviamente se o valor não
-estiver em nenhum destes intervalos, deverá ser impressa a mensagem “Fora
-de intervalo”.</h3>
+        apresente uma mensagem dizendo em qual dos seguintes intervalos ([0,25],
+        (25,50], (50,75], (75,100]) este valor se encontra. Obviamente se o valor não
+        estiver em nenhum destes intervalos, deverá ser impressa a mensagem “Fora
+        de intervalo”.</h3>
 
-<form action="<?= $_SERVER['PHP_SELF']; ?> #12" id="12" method="POST">
-        <input type="number" step=".01" name="num" id="">    
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #12" id="12" method="POST">
+        <input type="number" step=".01" name="num" id="">
         <br>
         <br>
         <button type="submit">Submit</button>
@@ -363,56 +364,55 @@ de intervalo”.</h3>
     <?php
     if (isset($_POST['num'])) {
         $intervalo = $_POST['num'];
-        if($intervalo >= 0 && $intervalo<=25){
+        if ($intervalo >= 0 && $intervalo <= 25) {
             printf("Intervalo entre (0-25)");
-        }elseif($intervalo>25 && $intervalo<=50){
+        } elseif ($intervalo > 25 && $intervalo <= 50) {
             printf("Intervalo entre (25-50)");
-        }elseif($intervalo>50 && $intervalo<=75){
+        } elseif ($intervalo > 50 && $intervalo <= 75) {
             printf("Intervalo entre (50-75)");
-        }elseif($intervalo>75 && $intervalo<=100){
+        } elseif ($intervalo > 75 && $intervalo <= 100) {
             printf("Intervalo entre (75-100)");
-        }else{
+        } else {
             printf("Fora de intervalo");
         }
     }
     ?>
-<h3>13. Leia 2 valores com uma casa decimal (x e y), que devem
-representar as coordenadas de um ponto em um plano. A seguir, determine qual
-o quadrante ao qual pertence o ponto, ou se está sobre um dos eixos cartesianos
-ou na origem (x = y = 0).
-Se o ponto estiver na origem, escreva a mensagem “Origem”.
-Se o ponto estiver sobre um dos eixos escreva “Eixo X” ou “Eixo Y”, conforme
-for a situação.</h3>
-<form action="<?= $_SERVER['PHP_SELF']; ?> #13" id="13" method="POST">
+    <h3>13. Leia 2 valores com uma casa decimal (x e y), que devem
+        representar as coordenadas de um ponto em um plano. A seguir, determine qual
+        o quadrante ao qual pertence o ponto, ou se está sobre um dos eixos cartesianos
+        ou na origem (x = y = 0).
+        Se o ponto estiver na origem, escreva a mensagem “Origem”.
+        Se o ponto estiver sobre um dos eixos escreva “Eixo X” ou “Eixo Y”, conforme
+        for a situação.</h3>
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #13" id="13" method="POST">
         <input type="number" step=".01" name="valor1" id="">
-        <input type="number" step=".01" name="valor2" id="">     
+        <input type="number" step=".01" name="valor2" id="">
         <br>
         <br>
         <button type="submit">Submit</button>
     </form>
 
     <?php
-    if (isset($_POST['valor1'],$_POST['valor2'])) {
+    if (isset($_POST['valor1'], $_POST['valor2'])) {
         $X = $_POST['valor1'];
         $Y = $_POST['valor2'];
 
         if ($X == 0 && $Y == 0) {
             printf("Origem");
-          } else if ($X == 0 && $Y != 0) {
+        } else if ($X == 0 && $Y != 0) {
             printf("Eixo Y");
-          } else if ($X != 0 && $Y == 0) {
+        } else if ($X != 0 && $Y == 0) {
             printf("Eixo X");
-          } else if ($X > 0 && $Y > 0) {
+        } else if ($X > 0 && $Y > 0) {
             printf("Q1");
-          } else if ($X < 0 && $Y > 0) {
+        } else if ($X < 0 && $Y > 0) {
             printf("Q2");
-          } else if ($X < 0 && $Y < 0) {
+        } else if ($X < 0 && $Y < 0) {
             printf("Q3");
-          } else if ($X > 0 && $Y < 0) {
+        } else if ($X > 0 && $Y < 0) {
             printf("Q4");
-          }
+        }
     }
     ?>
 </body>
 </html>
-
