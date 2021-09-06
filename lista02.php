@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
         body {
             text-align: center;
@@ -16,7 +16,6 @@
             margin: auto;
         }
     </style>
-    <title>Document</title>
 </head>
 
 <body>
@@ -415,33 +414,34 @@
         }
     }
     ?>
-    <h3>Leia um valor com duas casas decimais, equivalente ao salário de uma pessoa
-de Lisarb. Em seguida, calcule e mostre o valor que esta pessoa deve pagar de
-Imposto de Renda, segundo a tabela abaixo.</h3>
-<table border="2">
-    <tr>
-        <td>Renda</td>
-        <td>Imposto de renda</td>
-    </tr>
-    <tr>
-        <td>De 0.0 a R$ 2000.00</td>
-        <td>Isento</td>
-    </tr>
-    <tr>
-        <td>De R$ 2001.00 a R$ 3000.00</td>
-        <td>8%</td>
-    </tr>
-    <tr>
-        <td>De R$ 3001.00 a R$ 4500.00</td>
-        <td>18%</td>
-    </tr>
-    <tr>
-        <td>Acima de R$ 4500.00</td>
-        <td>28%</td>
-    </tr>
-</table>
-<form action="<?= $_SERVER['PHP_SELF']; ?> #13" id="13" method="POST">
-        <input type="number" step=".01" name="salario" id="">
+
+    <h3>14. Leia um valor com duas casas decimais, equivalente ao salário de uma pessoa
+        de Lisarb. Em seguida, calcule e mostre o valor que esta pessoa deve pagar de
+        Imposto de Renda, segundo a tabela abaixo.</h3>
+    <table border="2">
+        <tr>
+            <td>Renda</td>
+            <td>Imposto de renda</td>
+        </tr>
+        <tr>
+            <td>De 0.0 a R$ 2000.00</td>
+            <td>Isento</td>
+        </tr>
+        <tr>
+            <td>De R$ 2001.00 a R$ 3000.00</td>
+            <td>8%</td>
+        </tr>
+        <tr>
+            <td>De R$ 3001.00 a R$ 4500.00</td>
+            <td>18%</td>
+        </tr>
+        <tr>
+            <td>Acima de R$ 4500.00</td>
+            <td>28%</td>
+        </tr>
+    </table>
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #14" id="14" method="POST">
+        <input min="0" type="number" step=".01" name="salario" id="">
         <br>
         <br>
         <button type="submit">Submit</button>
@@ -452,18 +452,67 @@ Imposto de Renda, segundo a tabela abaixo.</h3>
         $salario = $_POST['salario'];
         $imposto;
 
-        if($salario >=0 && $salario <=2000){
+        if ($salario >= 0 && $salario <= 2000) {
             printf("Insento");
-        }elseif($salario >=2001 && $salario <=3000){
-            $imposto = $salario *(8/100);
-            printf("Imposto = R$ %.2f",$imposto);
-        }elseif($salario >=3001 && $salario <=4500){
-            $imposto = $salario *(18/100);
-            printf("Imposto = R$ %.2f",$imposto);
-        }elseif($salario >=4500){
-            $imposto = $salario *(28/100);
-            printf("Imposto = R$ %.2f",$imposto);
+        } elseif ($salario <= 3000) {
+            $imposto = ($salario - 2000) * 0.08;
+            printf("Imposto = R$ %.2f", $imposto);
+        } elseif ($salario <= 4500) {
+            $imposto = 1000 * 0.08 + ($salario - 3000);
+            printf("Imposto = R$ %.2f", $imposto);
+        } else {
+            $imposto = 1000 * 0.08 + 1500 * 0.18 + ($salario - 4500) * 0.28;
+            printf("Imposto = R$ %.2f", $imposto);
         }
     }
     ?>
+
+    <h3>15. Escreva um programa que repita a leitura de uma senha até que
+        ela seja válida. Para cada leitura de senha incorreta informada, escrever a
+        mensagem "Senha Invalida". Quando a senha for informada corretamente deve
+        ser impressa a mensagem "Acesso Permitido" e o algoritmo encerrado.
+        Considere que a senha correta é o valor 2002.</h3>
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #15" id="15" method="POST">
+        <input type="number" step=".01" name="senha" id="">
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <?php
+    if (isset($_POST['senha'])) {
+        $senha = $_POST['senha'];
+        if ($senha != 2002) {
+            printf("Senha Inválida");
+        } else {
+            printf("Acesso permitido");
+        }
+    }
+    ?>
+    <h3>16. Escreva um programa para ler as coordenadas (X,Y) de uma
+        quantidade indeterminada de pontos no sistema cartesiano. Para cada ponto
+        escrever o quadrante a que ele pertence.</h3>
+    <form action="<?= $_SERVER['PHP_SELF']; ?> #16" id="16" method="POST">
+        <input type="number" name="cordX" id="">
+        <input type="number" name="cordY" id="">
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <?php
+    if (isset($_POST['cordX'], $_POST['cordY'])) {
+        $cordX = $_POST['cordX'];
+        $cordY = $_POST['cordY'];
+        if ($cordX > 0 & $cordY > 0)
+            printf("Primeiro");
+        else if ($cordX < 0 & $cordY > 0)
+            printf("Segundo");
+        else if ($cordX < 0 & $cordY < 0)
+            printf("Terceiro");
+        else
+            printf("Quarto");
+    }
+    ?>
 </body>
+</html>
