@@ -6,87 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Procedimentos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    #formulario {
-        margin: 20px;
-    }
-
-    #button {
-        margin: 20px;
-    }
-
-    #excecao{
-        padding: 50px;
-    }
-
-    #ver_procedimento{
-        margin: 20px;
-    }  
-</style>
 
 <body>
-    <div class="jumbotron">
-        <h2>Cadastro de Procedimentos</h2>
-    </div>
-    <form id="formulario" action="insertSA.php" method="POST">
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Código</label>
-            <div class="col-sm-10">
-                <input type="number" name="codigo">
-            </div>
+    <div class="container">
+        <h3 style="margin-bottom: 20px;">Cadastrar procedimento</h3>
+        <div class="formCadastro">
+            <form action="insertSA.php" method="POST">
+                <label for="nome">Codigo:</label>
+                <input type="number" name="codigo" id="codigo" required>
+                <label for="valor">Valor:</label>
+                <input type="number" step=".01" name="valor" id="valor" required>
+                <label for="nome">Nome Procedimento:</label>
+                <input type="text" name="nome" id="nome" required>
+                <label for="data_procedimento">Data Procedimento</label>
+                <input type="date" name="data_procedimento" id="data_procedimento">
+                <label for="genero">Gênero:</label>
+                <input type="text" name="genero" id="genero" required>
+                <label for="exececao">Adicionar Exceção:</label>
+                <input type="text" name="excecao" id="excecao" required>
+                <button type="submit" class="btnCadastro">Cadastrar</button>
+                <button class="btnCadastro">
+                 <a href="ver_cadastro.php">Ver procedimentos agendados</a>
+                </button>                
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Valor</label>
-            <div class="col-sm-10">
-                <input step=".01" type="number" name="valor">
-            </div>
-        </div>
-        <form>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nome Procedimento</label>
-                <div class="col-sm-6">
-                    <input type="text" name="nome">
-                </div>
-            </div>
-            <div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Data Procedimento</label>
-                    <div class="col-sm-6">
-                        <input type="date" name="data_procedimento" id="data_procedimento">                        
-                    </div>                   
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Gênero</label>
-                <div class="col-sm-10">
-                    <input type="text" name="genero">
-                </div>
-            </div>
-            <div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Adicionar Exceção</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="excecao" id="excecao">                        
-                    </div>                   
-                </div>
-            </div>
-            <div id="button">
-            <button type="reset">Limpar</button>
-            <button type="submit">Cadastrar Consulta</button>   
-            <a class="btn btn-primary" href="ver_cadastro.php" role="button">Ver procedimentos agendados</a>         
-        </div>               
-        </form>
-        
         <?php
-            require_once 'conexao.php';            
+        require_once 'conexao.php';
         ?>
+        </form>
+    </div>
+    </div>
 </body>
 
 </html>

@@ -8,6 +8,6 @@
        $cadastro->bindParam(":id", $id_consulta);
        $cadastro->execute();
        
-       header("location: indexSA.php");
+       header("location: ver_cadastro.php");
     }
 ?>

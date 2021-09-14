@@ -1,27 +1,22 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-<style>
-    #tabela{
-        margin: auto;
-    }
-    h2{
-        text-align: center;
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 <body>
-    <h2>Procedimentos agendados</h2>
-    <form action="" class="jumbotron">
-    <table id="tabela" border="2px">
-        <tr>
-            <td>CODIGO</td>
-            <td>NOME PROCEDIMENTO</td>            
-            <td>VALOR</td>
-            <td>DATA PROCEDIMENTO</td>
-            <td>OBSERVAÇÃO</td>
-        </tr>
-        <a href="indexSA.php">Voltar para página de cadastro</a>
+<div class="container">
+        <div style="margin-bottom: 15px;">
+            <a href="indexSA.php" class="btnCadastro">Cadastrar</a>
+        </div>
+        <h3 style="margin-bottom: 30px;">Procedimentos Agendados</h3>
+        <div class="tabela">
+            <table>
+                <tr>
+                    <th>CODIGO</th>
+                    <th>NOME PROCEDIMENTO</th>
+                    <th>VALOR</th>
+                    <th>DATA PROCEDIMENTO</th>
+                    <th>OBSERVAÇÃO</th>                  
+                </tr>                
         <?php
             require_once 'conexao.php';
-            $cmd = $bancoSA->query("SELECT * FROM dados ORDER BY nome");
+            $cmd = $bancoSA->query("SELECT * FROM dados ORDER BY data_procedimento");
             $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
             
             foreach ($res as $valor) {
@@ -36,7 +31,8 @@
                 echo "</tr>";
             }
         ?>
-    </table><br><br>
-    </form>    
+            </table>
+        </div>
+    </div>
 </body>
 </html>
