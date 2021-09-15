@@ -19,6 +19,6 @@
     $cadastro->execute();
 
     // Para chamar o index
-    header("location: indexSA.php");
+    header("location: ver_cadastro.php");
 
 ?>

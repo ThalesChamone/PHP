@@ -1,38 +1,94 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 <link rel="stylesheet" href="style.css">
+
 <body>
-<div class="container">
-        <div style="margin-bottom: 15px;">
-            <a href="indexSA.php" class="btnCadastro">Cadastrar</a>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="fas fa-address-card"></i>
+                    <span class="link-text">Paciente</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="consultar.php" class="nav-link">
+                    <i class="fas fa-user-md"></i>
+                    <span class="link-text">Médico</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="fas fa-file-medical"></i>
+                    <span class="link-text">Convênio</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="fas fa-stethoscope"></i>
+                    <span class="link-text">Especialidade</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="fas fa-syringe"></i>
+                    <span class="link-text">Procedimento</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="fas fa-briefcase-medical"></i>
+                    <span class="link-text">Padrões</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div style="margin-bottom: 15px;">
+                <h3>Procedimentos Agendados</h3>
+            </div>
+            <div class="cadastroResponsivo">
+                <a href="indexSA.php" class="btnCadastro">Cadastrar procedimento</a>
+            </div>
+
+            <div class="tableContainer">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>CODIGO</th>
+                            <th>NOME PROCEDIMENTO</th>
+                            <th>VALOR</th>
+                            <th>DATA PROCEDIMENTO</th>
+                            <th>OBSERVAÇÃO</th>
+                            <th><a href="indexSA.php">Cadastrar procedimento</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <?php
+                        require_once 'conexao.php';
+                        $cmd = $bancoSA->query("SELECT * FROM dados ORDER BY data_procedimento");
+                        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+
+                        foreach ($res as $valor) {
+                            echo "<tr>";
+                            echo "<td data-label='CODIGO'>" . $valor['codigo'] . "</td>";
+                            echo "<td data-label='NOME PROCEDIMENTO'>" . $valor['nome'] . "</td>";
+                            echo "<td data-label='VALOR'>" . $valor['valor'] . "</td>";
+                            echo "<td data-label='DATA PROCEDIMENTO'>" . $valor['data_procedimento'] . "</td>";
+                            echo "<td data-label='OBSERVAÇÃO'>" . $valor['excecao'] . "</td>";
+                            echo "<td><a href='atualizar.php?id_consulta=" . $valor['id_consulta'] . "'>Atualizar</a></td>";
+                            echo "<td><a href='deleteSA.php?id_consulta=" . $valor['id_consulta'] . "'>Deletar</a></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
-        <h3 style="margin-bottom: 30px;">Procedimentos Agendados</h3>
-        <div class="tabela">
-            <table>
-                <tr>
-                    <th>CODIGO</th>
-                    <th>NOME PROCEDIMENTO</th>
-                    <th>VALOR</th>
-                    <th>DATA PROCEDIMENTO</th>
-                    <th>OBSERVAÇÃO</th>                  
-                </tr>                
-        <?php
-            require_once 'conexao.php';
-            $cmd = $bancoSA->query("SELECT * FROM dados ORDER BY data_procedimento");
-            $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-            
-            foreach ($res as $valor) {
-                echo "<tr>";
-                echo "<td>".$valor['codigo']."</td>";
-                echo "<td>".$valor['nome']."</td>";
-                echo "<td>".$valor['valor']."</td>";
-                echo "<td>".$valor['data_procedimento']."</td>";
-                echo "<td>".$valor['excecao']."</td>";
-                echo "<td><a href='atualizar.php?id_consulta=".$valor['id_consulta']."'>Atualizar</a></td>";
-                echo "<td><a href='deleteSA.php?id_consulta=".$valor['id_consulta']."'>Deletar</a></td>";
-                echo "</tr>";
-            }
-        ?>
-            </table>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
