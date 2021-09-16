@@ -5,6 +5,12 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="nav-item">
+                <a href="indexSA.php" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="" class="nav-link">
                     <i class="fas fa-address-card"></i>
                     <span class="link-text">Paciente</span>
@@ -65,8 +71,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
                         <?php
                         require_once 'conexao.php';
                         $cmd = $bancoSA->query("SELECT * FROM dados ORDER BY data_procedimento");
@@ -86,9 +90,9 @@
                         ?>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </main>
 </body>
+
 </html>

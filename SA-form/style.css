@@ -96,6 +96,7 @@ main {
   border:1px solid #ddd;
   text-align: center;
   font-size:16px;
+  word-wrap: break-word;
 }
  
 .table th{
@@ -183,10 +184,10 @@ main {
     .nav-link:hover {
         width: 0px;
     }
- 
-    .nav-item{
-        width: 3.6rem;
-    }
+
+    .nav-link{
+        width: 1.8rem;
+    } 
  
     /* TABLE */
     table{
