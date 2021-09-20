@@ -1,0 +1,13 @@
+<?php
+    require_once '../conexao.php';
+
+    if(isset($_GET['id_consulta']) && !empty($_GET['id_consulta'])){
+        $id_consulta = addslashes($_GET['id_consulta']);
+                
+       $cadastro = $conn->prepare("DELETE FROM dados WHERE id_consulta = :id"); 
+       $cadastro->bindParam(":id", $id_consulta);
+       $cadastro->execute();
+       
+       header("location: ver_cadastro.php");
+    }
+?>

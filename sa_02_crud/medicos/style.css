@@ -1,0 +1,253 @@
+:root {
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 200ms ease;
+    z-index: 999;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transition: width 200ms ease;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+}
+
+.nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    width: 16rem;
+}
+
+.navbar:hover .link-text {
+    display: block;
+}
+
+.navbar:hover {
+    width: 16rem;
+}
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+}
+
+.nav-link i {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+    font-size: 20px;
+}
+
+/* TABLE */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td,
+.table th {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    word-wrap: break-word;
+    font-size: 16px;
+}
+
+.table th {
+    background-color: var(--bg-primary);
+    color: #ffffff;
+}
+
+.table th:last-child {
+    background-color: blue;
+}
+
+.table th a {
+    color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: var(--text-secondary);
+}
+
+/* CORPO */
+.cadastroResponsivo {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    margin: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btnCadastro {
+    padding: 7px;
+    background-color: var(--bg-primary);
+    color: #fff;
+    border: 1px solid var(--bg-primary);
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.formPaciente {
+    margin-bottom: 5px;
+    padding: 20px 30px 20px 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 50px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.formPaciente input {
+    width: 100%;
+    clear: both;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.imgLogo {
+    margin-top: 13rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    /* NAVBAR */
+    .navbar {
+        width: 100vw;
+        height: 4rem;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    main {
+        margin: 0;
+    }
+
+    .navbar:hover .link-text {
+        display: none;
+    }
+
+    .navbar:hover {
+        width: 100vw;
+    }
+
+    .nav-link:hover {
+        width: 0px;
+    }
+
+    .nav-link {
+        width: 1.8rem;
+    }
+
+    /* TABLE */
+    table {
+        margin-top: 4rem;
+    }
+    .table thead {
+        display: none;
+    }
+
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 15px;
+    }
+    .table td {
+        text-align: center;
+        padding-left: 50%;
+        text-align: center;
+        position: relative;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .tableContainer {
+        width: 100%;
+    }
+    /* CORPO */
+
+    .formPaciente {
+        width: 100%;
+    }
+
+    .cadastroResponsivo {
+        display: block;
+        margin-left: 3rem;
+        margin-top: 3rem;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .nav-item {
+        width: 100%;
+    }
+}
